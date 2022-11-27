@@ -1,0 +1,15 @@
+<mat-accordion *ngIf="chapter.chapterComponents">
+    <button (click)="openComponentPicker()" mat-button color="primary">Edit components</button>
+    <ng-container *ngFor="let component of chapter.chapterComponents">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Component title: {{component.title}}
+                </mat-panel-title>
+                <mat-panel-description>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <tt-component [component]="component"></tt-component>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>

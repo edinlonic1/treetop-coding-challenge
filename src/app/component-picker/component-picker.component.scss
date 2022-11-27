@@ -1,0 +1,39 @@
+.components-table {
+  width: 100%;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+.table-row-is-clicked {
+  font-weight: bold;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr.highlight {
+  border-bottom: 1pt solid black;
+  border-top: 1pt solid black;
+}
+
+tr:hover {
+  border-bottom: 1pt solid black;
+  border-top: 1pt solid black;
+}

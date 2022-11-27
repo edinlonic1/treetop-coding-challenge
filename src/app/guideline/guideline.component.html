@@ -1,0 +1,14 @@
+<mat-accordion *ngIf="guideline.chapters">
+    <ng-container *ngFor="let chapter of guideline.chapters">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Chapter: {{chapter.title}}
+                </mat-panel-title>
+                <mat-panel-description>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <tt-chapter [chapter]="chapter"></tt-chapter>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>

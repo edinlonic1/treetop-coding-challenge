@@ -1,0 +1,15 @@
+<mat-accordion *ngIf="guidelines">
+    <ng-container *ngFor="let guideline of guidelines">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Guideline: {{guideline.title}}
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <tt-guideline [guideline]="guideline"></tt-guideline>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>

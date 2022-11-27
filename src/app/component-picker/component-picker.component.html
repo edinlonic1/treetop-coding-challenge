@@ -1,0 +1,50 @@
+<mat-dialog-content class="mat-typography height-100">
+  <div class="container">
+    <div class="flex-item">
+      <mat-form-field class="width-100">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search for components" #input>
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let element">{{element.title}}</td>
+        </ng-container>
+        <ng-container matColumnDef="code">
+          <th mat-header-cell *matHeaderCellDef>Code</th>
+          <td mat-cell *matCellDef="let element">{{element.code}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-row
+            [ngClass]="{'highlight': selectedComponent?.id == row.id}"
+            (click)="selectRow(row)"
+            *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[3, 5]"
+      showFirstLastButtons
+      aria-label="Select page">
+      </mat-paginator>
+    </div>
+  </div>
+  <div class="container">
+    <div class="flex-item">
+      <ng-container *ngIf="selectedComponent">
+        <p>Component title: {{selectedComponent.title}} - Code: {{selectedComponent.code}}</p>
+        <p>{{selectedComponent.description}}</p>
+      </ng-container>
+    </div>
+  </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions style="margin-top: auto;" align="end">
+    <button [mat-dialog-close]="true" mat-raised-button>Close</button>
+    <ng-container *ngIf="selectedComponent">
+      <button (click)="addComponent(selectedComponent)" *ngIf="!disableAddButton; else removeButton" color="primary" mat-raised-button>Add</button>
+      <ng-template #removeButton>
+        <button (click)="removeComponent(selectedComponent)" mat-raised-button color="warn">Remove</button>
+      </ng-template>
+    </ng-container>
+
+  </mat-dialog-actions>
